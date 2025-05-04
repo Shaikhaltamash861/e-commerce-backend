@@ -1,11 +1,13 @@
 const express = require('express');
+
+const { products, product, addToCart } = require('../controllers/product.controller');
+const { validateProductByIdReq, validateCartProductsReq } = require('../middlewares/products/validation');
 const { checkAuth } = require('../middlewares/auth/auth');
-const { isAuthorize } = require('../middlewares/roles');
-const { addPoduct } = require('../controllers/admin/admin.product.controller');
-const { products } = require('../controllers/product.controller');
 const router = express.Router();
 
-router.post('/add',checkAuth, isAuthorize(['ADMIN']), addPoduct);
 router.get('/list',products);
+router.get('/getProductById', validateProductByIdReq, product);
+
+router.post('/addtocart',checkAuth, validateCartProductsReq, addToCart);
 
 module.exports = router;

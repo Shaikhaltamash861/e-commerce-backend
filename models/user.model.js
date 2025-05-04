@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     role: {
         type: String,
         default: "USER",
-        enum: ["USER", "ADMIN"],
+        enum: ["USER", "ADMIN", "SELLER"],
         required: true
     },
     email: {
@@ -25,10 +25,6 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         min:6
-    },
-    cart: {
-        type: Array,
-        default: []
     },
     contact: {
         type: Number

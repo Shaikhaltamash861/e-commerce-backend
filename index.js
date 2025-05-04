@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 const userRoute = require('./routes/user.route');
 const productRoute = require('./routes/product.route');
+const sellerRoute = require('./routes/admin/admin.product');
 
 app.use(express.json());
 app.use(cookieParser())
@@ -16,6 +17,7 @@ app.use(cookieParser())
 mongoDB();
 app.use('/user', userRoute);
 app.use('/product', productRoute);
+app.use('/seller/product', sellerRoute);
 app.get('/test',(req,res) => {
     res.send("i'm live")
 })

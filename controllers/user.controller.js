@@ -14,7 +14,6 @@ exports.signUp = async(req,res) => {
         const response = await User(req.body);
         await response.save();
         return res.status(200).json({message: "Sign up successfully.", success: true});
-        console.log(response);
     } catch (error) {
         console.dir(error, { depth: null});
         return res.status(500).json({ message: "Internal Server error" });
