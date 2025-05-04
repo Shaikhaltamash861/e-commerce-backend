@@ -1,0 +1,10 @@
+node_modules/
+.env
+# Sentry Config File
+.sentryclirc
+.vscode
+.prettierrc
+.vscode
+eslint.config.mjs
+logs
+.vercel
